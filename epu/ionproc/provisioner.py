@@ -221,8 +221,8 @@ class ProvisionerNotifier(object):
     def send_record(self, record, subscribers, operation='sensor_info'):
         """Send a single node record to all subscribers.
         """
-        log.debug('Sending status record about node %s to %s',
-                record['node_id'], repr(subscribers))
+        log.debug('Sending state %s record for node %s to %s',
+                record['state'], record['node_id'], repr(subscribers))
         for sub in subscribers:
             yield self.process.send(sub, operation, record)
 
